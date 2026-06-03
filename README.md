@@ -6,20 +6,26 @@ Template proyek iOS berbasis UIKit yang dikonfigurasi menggunakan **XcodeGen**. 
 
 - Xcode 13 atau versi terbaru
 - [XcodeGen](https://github.com/yonaskolb/XcodeGen)
+- [CocoaPods](https://cocoapods.org)
 
-## Cara Instalasi XcodeGen
+## Cara Instalasi
 
-Anda bisa menginstal XcodeGen melalui Homebrew:
+Instal XcodeGen dan CocoaPods via terminal:
 
 ```bash
+# XcodeGen
 brew install xcodegen
+
+# CocoaPods
+sudo gem install cocoapods
 ```
 
 ## Struktur Proyek
 
 ```text
 .
-├── Makefile                # Shortcut untuk tugas pengembangan (generate & clean)
+├── Makefile                # Shortcut untuk tugas pengembangan (generate, setup, & clean)
+├── Podfile                 # Konfigurasi dependensi CocoaPods
 ├── README.md               # Dokumentasi proyek (berkas ini)
 ├── project.yml             # Konfigurasi XcodeGen
 └── Sources/                # Direktori kode sumber utama
@@ -33,23 +39,25 @@ brew install xcodegen
 
 ## Panduan Penggunaan
 
-### 1. Generasi Proyek Xcode
-Untuk menghasilkan berkas `.xcodeproj` dari file `project.yml`, Anda dapat menjalankan perintah berikut di terminal:
+### 1. Inisialisasi Proyek (XcodeGen + CocoaPods)
+Untuk menjalan XcodeGen sekaligus memasang CocoaPods dependensi, jalankan perintah:
 
 ```bash
-make generate
+make setup
 ```
-*Atau jalankan perintah asli:* `xcodegen generate`
+Perintah ini akan menghasilkan berkas `TemplateUIKit.xcodeproj` dilanjutkan dengan menjalankan `pod install` yang akan menghasilkan berkas `TemplateUIKit.xcworkspace`.
 
 ### 2. Membuka Proyek
-Setelah berhasil digenerasi, Anda dapat membuka proyek menggunakan Xcode:
+Jika Anda menggunakan CocoaPods, selalu buka berkas workspace (`.xcworkspace`):
 
 ```bash
-open TemplateUIKit.xcodeproj
+open TemplateUIKit.xcworkspace
 ```
 
+*Catatan: Jika Anda tidak menggunakan CocoaPods, Anda cukup menjalankan `make generate` dan membuka `open TemplateUIKit.xcodeproj`.*
+
 ### 3. Membersihkan Proyek
-Jika Anda ingin menghapus berkas `.xcodeproj` yang digenerasi agar direktori kembali bersih:
+Jika Anda ingin menghapus semua berkas proyek dan dependensi yang digenerasi:
 
 ```bash
 make clean

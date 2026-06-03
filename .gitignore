@@ -25,9 +25,9 @@ xcuserdata/
 
 # CocoaPods
 # ========================
-# Pods/
-# Podfile.lock
-# *.xcworkspace
+Pods/
+Podfile.lock
+*.xcworkspace
 
 # Carthage
 # ========================
