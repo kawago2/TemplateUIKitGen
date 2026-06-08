@@ -33,7 +33,6 @@ sudo gem install cocoapods
     ├── SceneDelegate.swift # Inisialisasi tampilan awal secara programatis
     ├── ViewController.swift# Controller utama/pertama
     ├── Info.plist          # Konfigurasi properti bundel iOS
-    ├── LaunchScreen.storyboard # Tampilan splash saat aplikasi dimuat
     └── Assets.xcassets/    # Aset gambar, warna, dan ikon aplikasi
 ```
 
