@@ -63,6 +63,34 @@ Jika Anda ingin menghapus semua berkas proyek dan dependensi yang digenerasi:
 make clean
 ```
 
+## Cara Mengubah Nama Proyek (Rename)
+
+Jika Anda ingin mengubah nama proyek dari `TemplateUIKit` menjadi nama proyek Anda sendiri (misalnya `MyProject`):
+
+1. **Ubah `project.yml`**:
+   Buka berkas `project.yml` dan ubah nilai `name` serta nama target di bawah `targets` sesuai keinginan Anda:
+   ```yaml
+   name: MyProject
+   targets:
+     MyProject:
+       type: application
+       ...
+   ```
+2. **Ubah `Podfile`**:
+   Buka berkas `Podfile` dan sesuaikan nama target Anda:
+   ```ruby
+   target 'MyProject' do
+     pod 'Alamofire', '~> 5.6'
+   end
+   ```
+3. **Regenerasi Proyek**:
+   Jalankan perintah berikut di terminal untuk menghapus berkas konfigurasi lama dan membuat yang baru:
+   ```bash
+   make clean
+   make setup
+   ```
+   *Catatan: Selalu buka berkas `.xcworkspace` baru hasil generasi (misalnya `MyProject.xcworkspace`) menggunakan Xcode.*
+
 ## Detail Konfigurasi (`project.yml`)
 
 Berkas `project.yml` menentukan struktur proyek iOS, konfigurasi target, dan target deployment:

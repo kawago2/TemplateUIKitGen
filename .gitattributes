@@ -1,2 +1,4 @@
-*.xib text
-*.storyboard text
+* text=auto
+
+*.xib text eol=lf
+*.storyboard text eol=lf
